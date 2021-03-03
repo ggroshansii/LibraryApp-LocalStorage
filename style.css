@@ -19,14 +19,33 @@ body, html{
 header{
     border: 2px solid green;
     grid-area: header;
+    text-align: center;
 }
 
 .sidebar{
     border: 2px solid pink;
     grid-area: sidebar;
+    position: fixed;
 }
 
 main{
     border: 2px solid orange;
     grid-area: main;
+}
+
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto auto;
+    grid-gap: 50px;
+    padding: 50px;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.book{
+    border: 1px solid black;
+    width: 150px;
+    height: 200px;
 }
