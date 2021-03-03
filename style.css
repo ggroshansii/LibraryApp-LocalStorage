@@ -1,0 +1,32 @@
+
+body, html{
+    border: 1px solid purple;
+    height: 100vh;
+    width: 100%;
+}
+
+.overall-grid{
+    border: 2px solid red;
+    display:grid;
+    height: 100vh;
+    grid-template-columns: 20% 80%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: 
+            "header header"
+            "sidebar main";
+}
+
+header{
+    border: 2px solid green;
+    grid-area: header;
+}
+
+.sidebar{
+    border: 2px solid pink;
+    grid-area: sidebar;
+}
+
+main{
+    border: 2px solid orange;
+    grid-area: main;
+}
