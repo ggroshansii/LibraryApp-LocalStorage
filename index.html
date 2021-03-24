@@ -1,16 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/reset.css">
     <link rel="stylesheet" href="/style.css">
-    <title>Document</title>
+    <title>Library App</title>
 </head>
+
 <body>
     <div class="overall-grid">
         <header>
-            <h1>Library</h1>
+            <div class="upper-half">
+                <h1>Library</h1>
+                <button>Add Book</button>
+            </div>
+
+            <div class="lower-half">
+
+                <div class="form-popup" id="myForm">
+                    <form action="/action_page.php" class="form-container">
+
+                        <label for="author"><b>Author</b></label>
+                        <input type="text" id="author" placeholder="Enter Author's Name" name="email" required>
+
+                        <label for="title"><b>Title</b></label>
+                        <input type="text" id="title" placeholder="Enter Book's Title" name="title" required>
+
+                        <label for="pages"><b>Number of Pages</b></label>
+                        <input type="text" id="pages" placeholder="Enter Number of Pages" name="pages" required>
+
+                        <label for="read"><b>Read</b></label>
+                        <input type="checkbox" id="read" placeholder="Enter Password" name="read">
+
+                        <label for="notread"><b>Not Read</b></label>
+                        <input type="checkbox" id="notread" placeholder="Enter Password" name="notread">
+
+                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
+                    </form>
+                </div>
+
+            </div>
         </header>
         <main>
             <div class="grid-container">
@@ -22,4 +54,5 @@
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

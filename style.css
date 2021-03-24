@@ -21,6 +21,15 @@ header{
     text-align: center;
 }
 
+.upper-half{
+    height: 50%;
+    border: 2px solid purple;
+}
+
+.lower-half{
+    height: 50%;
+    border: 2px solid green;
+}
 
 
 main{
