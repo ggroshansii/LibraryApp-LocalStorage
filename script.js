@@ -29,3 +29,4 @@ form.submit(function(e){
                          ("input[name = 'pages']").value),
                          ("input[name = 'read']").value))
                         })
+                        
