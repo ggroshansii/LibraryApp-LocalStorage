@@ -2,7 +2,10 @@
 let myLibrary = [];
 
 function Book(author, title, pages, read) {
-  // the constructor...
+  this.author = author;
+  this.title = title;
+  this.pages = pages;
+  this.read = read;
 }
 
 function addBookToLibrary() {
@@ -19,3 +22,10 @@ btn.addEventListener("click", () => {
     gridContainer.append(newDiv)
 });
 
+const form = document.querySelectorAll('#myForm')
+form.submit(function(e){
+    let book = new Book (("input[name = 'email']").value),
+                         ("input[name = 'title']").value),
+                         ("input[name = 'pages']").value),
+                         ("input[name = 'read']").value))
+                        })
