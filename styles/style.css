@@ -12,11 +12,29 @@ header {
   
   body,html {
     min-height: 100vh;
+    box-sizing: border-box;
   }
   
   #overall-grid-container {
     min-height: 100vh;
-    display: grid;
-    grid-template-rows: 20% 70% 10%;
 
+    /* Grid Styles */
+    display: grid;
+    grid-template-rows: auto 1fr 10%;
+  }
+
+  #book-grid-container {
+    margin: auto;
+
+    /* Grid Styles */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    justify-items: center;
+  }
+
+  .book {
+      height: 140px;
+      width: 100px;
+      margin: 20px;
+      border: 2px solid red;
   }
