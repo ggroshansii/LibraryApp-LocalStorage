@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 header {
     background-color: hsl(20, 55%, 55%, 0.8);
   }
@@ -13,6 +16,7 @@ header {
   body,html {
     min-height: 100vh;
     box-sizing: border-box;
+    font-size: 16px;
   }
   
   #overall-grid-container {
@@ -37,4 +41,26 @@ header {
       width: 100px;
       margin: 20px;
       border: 2px solid red;
+  }
+
+  h1 {
+    font-family: Lobster;
+    font-size: 4rem;
+    text-align: center;
+    padding: 0.9rem;
+  }
+
+  h2 {
+    font-weight: 1000;
+    font-family: Roboto;
+    font-size: 1.1rem;
+  }
+
+  label {
+      font-family: Roboto;
+      font-size: 0.9rem;
+  }
+
+  form {
+      padding: 0.5rem 0.3rem 1rem 0.3rem;
   }
