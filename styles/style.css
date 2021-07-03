@@ -1,0 +1,22 @@
+header {
+    background-color: hsl(20, 55%, 55%, 0.8);
+  }
+  
+  main {
+    background-color: hsl(200, 35%, 65%, 0.8);
+  }
+  
+  footer {
+      background-color: hsl(300, 35%, 65%, 0.8);
+  }
+  
+  body,html {
+    min-height: 100vh;
+  }
+  
+  #overall-grid-container {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 20% 70% 10%;
+
+  }
