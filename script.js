@@ -38,12 +38,12 @@ function getRadioVal(form, name) {
 
 //Function to reset form after submitting
 function resetForm() {
-  authorField.value ="";
-  titleField.value="";
-  pageCountField.value="";
-  bookCoverField.value="";
-  readField.value="";
-  notReadField.value="";
+  authorField.value = "";
+  titleField.value = "";
+  pageCountField.value = "";
+  bookCoverField.value = "";
+  readField.value = "";
+  notReadField.value = "";
 }
 
 //Function to loop through book objs array and display on grid
@@ -52,23 +52,16 @@ function displayBooks(array) {
   const gridContainer = document.querySelector("#book-grid-container");
   const containerDivs = document.querySelectorAll(".book");
 
-  outerloop: 
   for (let i = 0; i < array.length; i++) {
-    innerloop:
-    for (let j = 0; j < containerDivs.length; j++) {
-      console.log(array[i]['title']);
-      console.log(containerDivs[j].id)
-      if (array[i]['title'] === containerDivs[j].id) {
-        break outerloop;
+    if (array[i].displayed !== true) {
+        let div = document.createElement("div");
+        div.classList.add("book");
+        div.setAttribute('id', array[i]['title']);
+        gridContainer.appendChild(div);
+        array[i].displayed = true; 
       }
     }
-    
-    let div = document.createElement("div");
-    div.classList.add("book");
-    div.setAttribute('id', array[i]['title'])
-    gridContainer.appendChild(div);
   }
-}
 
 
 // Submit button --> sends form data through Book constructor
@@ -93,10 +86,16 @@ submitBook.addEventListener('click', function (e) {
 
   displayBooks(myLibrary);
   resetForm();
-  
+
 })
 
 console.log(myLibrary)
 
 
 
+//testing
+const containerDivs = document.querySelectorAll(".book");
+
+for (let i = 0; i < containerDivs.length; i++) {
+  console.log(containerDivs[i].id)
+}
