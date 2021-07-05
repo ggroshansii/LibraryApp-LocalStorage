@@ -1,22 +1,17 @@
-
-function getRadioVal(form, name) {
-  let val;
-  // get list of radio buttons with specified name
-  let radios = form.elements[name];
-
-  // loop through list of radio buttons
-  for (let i = 0, len = radios.length; i < len; i++) {
-    if (radios[i].checked) { // radio checked?
-      val = radios[i].value; // if so, hold its value in val
-      break; // and break out of for loop
-    }
-  }
-  return val; // return value of checked radio or undefined if none checked
-}
-
-
+//Array for holding newly created book objs
 let myLibrary = [];
 
+
+//Form fields as variables
+const authorField = document.querySelector("#author");
+const titleField = document.querySelector("#title");
+const pageCountField = document.querySelector("#pageCount");
+const bookCoverField = document.querySelector("#bookCover");
+const readField = document.querySelector("#read");
+const notReadField = document.querySelector("#notRead");
+
+
+//Constructor to create new book objs
 function Book(author, title, pageCount, bookCover, read, index) {
   this.author = author;
   this.title = title;
@@ -26,16 +21,57 @@ function Book(author, title, pageCount, bookCover, read, index) {
   this.index = index;
 }
 
-//form fields
-const authorField = document.querySelector("#author");
-const titleField = document.querySelector("#title");
-const pageCountField = document.querySelector("#pageCount");
-const bookCoverField = document.querySelector("#bookCover");
-const readField = document.querySelector("#read");
-const notReadField = document.querySelector("#notRead");
+//Function to check which Radio Button is selected
+function getRadioVal(form, name) {
+  let val;
+
+  let radios = form.elements[name];
+
+  for (let i = 0, len = radios.length; i < len; i++) {
+    if (radios[i].checked) {
+      val = radios[i].value;
+      break;
+    }
+  }
+  return val;
+}
+
+//Function to reset form after submitting
+function resetForm() {
+  authorField.value ="";
+  titleField.value="";
+  pageCountField.value="";
+  bookCoverField.value="";
+  readField.value="";
+  notReadField.value="";
+}
+
+//Function to loop through book objs array and display on grid
+function displayBooks(array) {
+
+  const gridContainer = document.querySelector("#book-grid-container");
+  const containerDivs = document.querySelectorAll(".book");
+
+  outerloop: 
+  for (let i = 0; i < array.length; i++) {
+    innerloop:
+    for (let j = 0; j < containerDivs.length; j++) {
+      console.log(array[i]['title']);
+      console.log(containerDivs[j].id)
+      if (array[i]['title'] === containerDivs[j].id) {
+        break outerloop;
+      }
+    }
+    
+    let div = document.createElement("div");
+    div.classList.add("book");
+    div.setAttribute('id', array[i]['title'])
+    gridContainer.appendChild(div);
+  }
+}
 
 
-// Submit button
+// Submit button --> sends form data through Book constructor
 const submitBook = document.querySelector("#submit");
 submitBook.addEventListener('click', function (e) {
 
@@ -54,6 +90,13 @@ submitBook.addEventListener('click', function (e) {
   myLibrary.push(bookAddition);
   console.log(bookAddition);
   console.log(myLibrary);
+
+  displayBooks(myLibrary);
+  resetForm();
+  
 })
 
 console.log(myLibrary)
+
+
+
