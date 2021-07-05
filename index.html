@@ -15,18 +15,18 @@
         <header>
             <h1>Library</h1>
             <h2>Add New Book:</h2>
-            <form action="">
+            <form action="" id="form">
                 <label for="author">Author</label>
                 <input type="text" id="author" name="author" required>
                 <label for="title">Book Title</label>
                 <input type="text" id="title" name="title" required>
                 <label for="pagecount">Number of Pages</label>
-                <input type="text" id="pagecount" name="pagecount">
+                <input type="text" id="pageCount" name="pageCount">
                 <label for="bookCover">Cover Image URL:</label>
                 <input type="text" id="bookCover">
-                <input type="radio" id="read" name="haveRead">
+                <input type="radio" id="read" name="haveRead" value="true">
                 <label for="read">Read</label>
-                <input type="radio" id="notRead" name="haveRead">
+                <input type="radio" id="notRead" name="haveRead" value="false">
                 <label for="notRead">Not Read</label>
                 <button id="submit">Submit</button>
             </form>
@@ -52,6 +52,8 @@
             <p>This is the footer</p>
         </footer>
         <div>
+
+            <script src="script.js"></script>
 </body>
 
 </html>
