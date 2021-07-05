@@ -24,7 +24,6 @@ function Book(author, title, pageCount, bookCover, read, index) {
 //Function to check which Radio Button is selected
 function getRadioVal(form, name) {
   let val;
-
   let radios = form.elements[name];
 
   for (let i = 0, len = radios.length; i < len; i++) {
@@ -48,21 +47,26 @@ function resetForm() {
 
 //Function to loop through book objs array and display on grid
 function displayBooks(array) {
-
-  const gridContainer = document.querySelector("#book-grid-container");
-  const containerDivs = document.querySelectorAll(".book");
-
   for (let i = 0; i < array.length; i++) {
     if (array[i].displayed !== true) {
-        let div = document.createElement("div");
-        div.classList.add("book");
-        div.setAttribute('id', array[i]['title']);
-        gridContainer.appendChild(div);
-        array[i].displayed = true; 
-      }
+      createDisplay(array[i]);
     }
   }
+}
 
+//Creates element, updates class/id attributes, appends to DOM, updates 'displayed' property
+function createDisplay(obj) {
+  const gridContainer = document.querySelector("#book-grid-container");
+  let div = document.createElement("div");
+  div.classList.add("book");
+  div.setAttribute('id', obj['title']);
+  gridContainer.appendChild(div);
+  obj.displayed = true;
+}
+
+function addBookCover(obj) {
+  // add title, author text, read/not read (and corresponding colors), add remove button
+}
 
 // Submit button --> sends form data through Book constructor
 const submitBook = document.querySelector("#submit");
@@ -81,21 +85,8 @@ submitBook.addEventListener('click', function (e) {
     bookIndex);
 
   myLibrary.push(bookAddition);
-  console.log(bookAddition);
-  console.log(myLibrary);
 
   displayBooks(myLibrary);
   resetForm();
-
 })
 
-console.log(myLibrary)
-
-
-
-//testing
-const containerDivs = document.querySelectorAll(".book");
-
-for (let i = 0; i < containerDivs.length; i++) {
-  console.log(containerDivs[i].id)
-}
