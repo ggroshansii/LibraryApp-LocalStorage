@@ -41,8 +41,6 @@ function resetForm() {
   titleField.value = "";
   pageCountField.value = "";
   bookCoverField.value = "";
-  readField.value = "";
-  notReadField.value = "";
 }
 
 //Function to loop through book objs array and display on grid
