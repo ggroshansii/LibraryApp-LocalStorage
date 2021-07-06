@@ -57,14 +57,33 @@ function displayBooks(array) {
 //Creates element, updates class/id attributes, appends to DOM, updates 'displayed' property
 function createDisplay(obj) {
   const gridContainer = document.querySelector("#book-grid-container");
-  let div = document.createElement("div");
-  div.classList.add("book");
-  div.setAttribute('id', obj['title']);
-  gridContainer.appendChild(div);
+  let bookDiv = document.createElement("div");
+  bookDiv.classList.add("book");
+  bookDiv.setAttribute('id', obj['title']);
+  gridContainer.appendChild(bookDiv);
+
+  let titleP = document.createElement('p');
+  titleP.innerText = obj.title;
+  let authorP = document.createElement('p');
+  authorP.innerText = obj.author;
+
+  let readBtn = document.createElement('button');
+  if (obj.read === 'true') {
+    readBtn.innerText = 'Read';
+  } else {
+    readBtn.innerText = 'Not Read';
+  }
+
+  bookDiv.appendChild(titleP);
+  bookDiv.appendChild(authorP);
+  bookDiv.appendChild(readBtn);
+
   obj.displayed = true;
+
 }
 
 function addBookCover(obj) {
+  let title = o
   // add title, author text, read/not read (and corresponding colors), add remove button
 }
 
