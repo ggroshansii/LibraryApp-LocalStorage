@@ -60,6 +60,13 @@ function createDisplay(obj) {
   bookDiv.setAttribute('id', obj['title']);
   gridContainer.appendChild(bookDiv);
 
+  createBookElements(obj, bookDiv);
+
+  obj.displayed = true;
+}
+
+//Creates and appends the Title, Book and Read btn for the book display
+function createBookElements(obj, div) {
   let titleP = document.createElement('p');
   titleP.innerText = obj.title;
   let authorP = document.createElement('p');
@@ -71,18 +78,9 @@ function createDisplay(obj) {
   } else {
     readBtn.innerText = 'Not Read';
   }
-
-  bookDiv.appendChild(titleP);
-  bookDiv.appendChild(authorP);
-  bookDiv.appendChild(readBtn);
-
-  obj.displayed = true;
-
-}
-
-function addBookCover(obj) {
-  let title = o
-  // add title, author text, read/not read (and corresponding colors), add remove button
+  div.appendChild(titleP);
+  div.appendChild(authorP);
+  div.appendChild(readBtn);
 }
 
 // Submit button --> sends form data through Book constructor
