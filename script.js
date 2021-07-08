@@ -75,8 +75,10 @@ function createBookElements(obj, div) {
   let readBtn = document.createElement('button');
   if (obj.read === 'true') {
     readBtn.innerText = 'Read';
+    readBtn.style.backgroundColor = "#90ee90";
   } else {
     readBtn.innerText = 'Not Read';
+    readBtn.style.backgroundColor = "#FF6865";
   }
   div.appendChild(titleP);
   div.appendChild(authorP);

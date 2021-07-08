@@ -37,10 +37,24 @@ header {
   }
 
   .book {
-      height: 140px;
-      width: 100px;
+      position: relative;
+      height: 10rem;
+      width: 7.5rem;
       margin: 20px;
-      border: 2px solid red;
+      border: 1px solid black;
+      border-radius: 0.6rem;
+
+  }
+
+  .book button {
+    position: absolute;
+    bottom: 0.0rem;
+    left: 0.0rem; 
+    width: 7.5rem;
+    border-bottom-right-radius: 0.6rem;
+    border-bottom-left-radius: 0.6rem;
+    font-family: Lobster;
+    font-size: 1.1rem;
   }
 
   h1 {
@@ -64,3 +78,4 @@ header {
   form {
       padding: 0.5rem 0.3rem 1rem 0.3rem;
   }
+
