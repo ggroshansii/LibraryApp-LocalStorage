@@ -69,8 +69,10 @@ function createDisplay(obj) {
 function createBookElements(obj, div) {
   let titleP = document.createElement('p');
   titleP.innerText = obj.title;
+  titleP.setAttribute('id', 'divTitle')
   let authorP = document.createElement('p');
   authorP.innerText = obj.author;
+  authorP.setAttribute('id', 'divAuthor')
 
   let readBtn = document.createElement('button');
   if (obj.read === 'true') {

@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans&family=Source+Sans+Pro&display=swap');
 
 header {
     background-color: hsl(20, 55%, 55%, 0.8);
@@ -37,6 +39,9 @@ header {
   }
 
   .book {
+      /* flexbox styles */
+      display: flex;
+      justify-content: center;
       position: relative;
       height: 10rem;
       width: 7.5rem;
@@ -79,3 +84,26 @@ header {
       padding: 0.5rem 0.3rem 1rem 0.3rem;
   }
 
+  #divTitle {
+      position: absolute;
+      width: 90%;
+      margin: auto;
+      text-align: center;
+      top: 0.8rem;
+      padding: 5px 0px;
+
+      /* font styles */
+      font-family: Roboto;
+      font-weight: 800;
+  }
+
+  #divAuthor {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 5rem;
+
+    /* font styles */
+    font-family: roboto;
+    font-weight: 900;
+  }
