@@ -75,9 +75,11 @@ function createBookElements(obj, div) {
   authorP.setAttribute('id', 'divAuthor')
 
   let readBtn = document.createElement('button');
+  readBtn.setAttribute('id', 'haveReadBtn');
   if (obj.read === 'true') {
     readBtn.innerText = 'Read';
     readBtn.style.backgroundColor = "#90ee90";
+    
   } else {
     readBtn.innerText = 'Not Read';
     readBtn.style.backgroundColor = "#FF6865";
@@ -108,4 +110,5 @@ submitBook.addEventListener('click', function (e) {
   displayBooks(myLibrary);
   resetForm();
 })
+
 
