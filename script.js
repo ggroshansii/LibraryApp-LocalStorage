@@ -62,7 +62,7 @@ function createDisplay(obj) {
   gridContainer.appendChild(bookDiv);
 
   createBookElements(obj, bookDiv);
-  addBookCover(bookDiv);
+
 
   obj.displayed = true;
 }
@@ -77,9 +77,9 @@ function createBookElements(obj, div) {
   authorP.setAttribute('id', 'divAuthor')
   
   div.addEventListener('mouseover', function(e) {
+    removeBookCover(div);
     authorP.innerText = obj.author;
     titleP.innerText = obj.title;
-    removeBookCover(div);
   })
 
   div.addEventListener('mouseout', function(e) {
@@ -103,9 +103,8 @@ function addBookCover(obj, div) {
 function removeBookCover(div) {
   div.style.backgroundImage =  "";
   div.style.backgroundSize = "";
+  div.style.backgroundColor = "lightgrey";
 }
-
-
 
 
 //Creates Read button that will be on each book display
@@ -151,7 +150,6 @@ submitBook.addEventListener('click', function (e) {
 function clickEventBtn() {
   let readBtn = document.querySelectorAll('.readBtn');
 
-  console.log(readBtn)
   for (let i = 0; i < readBtn.length; i++) {
     readBtn[i].addEventListener('click', function (e) {
 
