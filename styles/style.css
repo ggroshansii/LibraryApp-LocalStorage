@@ -107,3 +107,11 @@ header {
     font-family: roboto;
     font-weight: 900;
   }
+
+  .redBackground {
+      background-color: #FF6865;
+  }
+
+  .greenBackground {
+      background-color: #90ee90;
+  }

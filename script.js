@@ -50,6 +50,7 @@ function displayBooks(array) {
       createDisplay(array[i]);
     }
   }
+  clickEventBtn();
 }
 
 //Creates element, updates class/id attributes, appends to DOM, updates 'displayed' property
@@ -59,6 +60,8 @@ function createDisplay(obj) {
   bookDiv.classList.add("book");
   bookDiv.setAttribute('id', obj['title']);
   gridContainer.appendChild(bookDiv);
+  bookDiv.style.backgroundImage = `url(${obj.bookCover})`;
+  bookDiv.style.backgroundSize = 'cover';
 
   createBookElements(obj, bookDiv);
 
@@ -68,33 +71,40 @@ function createDisplay(obj) {
 //Creates and appends the Title, Book and Read btn for the book display
 function createBookElements(obj, div) {
   let titleP = document.createElement('p');
-  titleP.innerText = obj.title;
   titleP.setAttribute('id', 'divTitle')
   let authorP = document.createElement('p');
-  authorP.innerText = obj.author;
   authorP.setAttribute('id', 'divAuthor')
+  
+  div.addEventListener('mouseenter', function(e) {
+    authorP.innerText = obj.author;
+    titleP.innerText = obj.title;
+  })
+
 
   div.appendChild(titleP);
   div.appendChild(authorP);
   div.appendChild(addReadBtn(obj));
+
 }
+
+
+
 
 //Creates Read button that will be on each book display
 function addReadBtn(obj) {
   let readBtn = document.createElement('button');
-  readBtn.setAttribute('id', 'readBtn');
+  readBtn.setAttribute('class', 'readBtn');
   if (obj.read === 'true') {
     readBtn.innerText = 'Read';
-    readBtn.style.backgroundColor = "#90ee90";
+    readBtn.classList.add('greenBackground');
 
   } else {
     readBtn.innerText = 'Not Read';
-    readBtn.style.backgroundColor = "#FF6865";
+    readBtn.classList.add('redBackground');
   }
+
   return readBtn;
 }
-
-
 
 // Submit button --> sends form data through Book constructor
 const submitBook = document.querySelector("#submit");
@@ -119,14 +129,28 @@ submitBook.addEventListener('click', function (e) {
 })
 
 
-let readBtn = document.querySelector('#readBtn');
-readBtn.addEventListener('click', function (e) {
-  if (e.style.backgroundColor === "#90ee90") {
-    e.style.backgroundColor ="#FF6865";
-    e.innerText = 'Not Read';
+//Adds Click event on newly created read button on book display
+function clickEventBtn() {
+  let readBtn = document.querySelectorAll('.readBtn');
+
+  console.log(readBtn)
+  for (let i = 0; i < readBtn.length; i++) {
+    readBtn[i].addEventListener('click', function (e) {
+
+      if (e.target.innerText === 'Read') {
+        e.target.classList.remove('greenBackground');
+        e.target.setAttribute('class', 'redBackground');
+        e.target.innerText = 'Not Read';
+      }
+      else if (e.target.innerText === 'Not Read') {
+        e.target.classList.remove('redBackground');
+        e.target.setAttribute('class', 'greenBackground');
+        e.target.innerText = 'Read';
+      }
+    });
   }
-  else if (e.style.backgroundColor === "#FF6865") {
-    e.style.backgroundColor = "#90ee90";
-    e.innerText = 'Read';
-  }
-});
+}
+
+
+
+
