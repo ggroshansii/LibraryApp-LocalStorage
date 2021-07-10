@@ -60,31 +60,49 @@ function createDisplay(obj) {
   bookDiv.classList.add("book");
   bookDiv.setAttribute('id', obj['title']);
   gridContainer.appendChild(bookDiv);
-  bookDiv.style.backgroundImage = `url(${obj.bookCover})`;
-  bookDiv.style.backgroundSize = 'cover';
 
   createBookElements(obj, bookDiv);
+  addBookCover(bookDiv);
 
   obj.displayed = true;
 }
 
 //Creates and appends the Title, Book and Read btn for the book display
 function createBookElements(obj, div) {
+
+  addBookCover(obj, div);
   let titleP = document.createElement('p');
   titleP.setAttribute('id', 'divTitle')
   let authorP = document.createElement('p');
   authorP.setAttribute('id', 'divAuthor')
   
-  div.addEventListener('mouseenter', function(e) {
+  div.addEventListener('mouseover', function(e) {
     authorP.innerText = obj.author;
     titleP.innerText = obj.title;
+    removeBookCover(div);
   })
 
+  div.addEventListener('mouseout', function(e) {
+    authorP.innerText =  "";
+    titleP.innerText = "";
+    addBookCover(obj, div);
+  })
 
   div.appendChild(titleP);
   div.appendChild(authorP);
   div.appendChild(addReadBtn(obj));
 
+}
+
+//Set background image to bookCover from obj
+function addBookCover(obj, div) {
+  div.style.backgroundImage = `url(${obj.bookCover})`;
+  div.style.backgroundSize = 'cover';
+}
+//Remove background image (bookCover) from book div
+function removeBookCover(div) {
+  div.style.backgroundImage =  "";
+  div.style.backgroundSize = "";
 }
 
 
