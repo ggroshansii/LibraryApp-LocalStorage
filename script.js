@@ -74,20 +74,27 @@ function createBookElements(obj, div) {
   authorP.innerText = obj.author;
   authorP.setAttribute('id', 'divAuthor')
 
+  div.appendChild(titleP);
+  div.appendChild(authorP);
+  div.appendChild(addReadBtn(obj));
+}
+
+//Creates Read button that will be on each book display
+function addReadBtn(obj) {
   let readBtn = document.createElement('button');
-  readBtn.setAttribute('id', 'haveReadBtn');
+  readBtn.setAttribute('id', 'readBtn');
   if (obj.read === 'true') {
     readBtn.innerText = 'Read';
     readBtn.style.backgroundColor = "#90ee90";
-    
+
   } else {
     readBtn.innerText = 'Not Read';
     readBtn.style.backgroundColor = "#FF6865";
   }
-  div.appendChild(titleP);
-  div.appendChild(authorP);
-  div.appendChild(readBtn);
+  return readBtn;
 }
+
+
 
 // Submit button --> sends form data through Book constructor
 const submitBook = document.querySelector("#submit");
@@ -112,3 +119,14 @@ submitBook.addEventListener('click', function (e) {
 })
 
 
+let readBtn = document.querySelector('#readBtn');
+readBtn.addEventListener('click', function (e) {
+  if (e.style.backgroundColor === "#90ee90") {
+    e.style.backgroundColor ="#FF6865";
+    e.innerText = 'Not Read';
+  }
+  else if (e.style.backgroundColor === "#FF6865") {
+    e.style.backgroundColor = "#90ee90";
+    e.innerText = 'Read';
+  }
+});
