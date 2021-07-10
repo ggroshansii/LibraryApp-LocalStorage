@@ -56,8 +56,9 @@ header {
     bottom: 0.0rem;
     left: 0.0rem; 
     width: 7.5rem;
-    border-bottom-right-radius: 0.6rem;
-    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.52rem;
+    border-bottom-left-radius: 0.52rem;
+    border: none;
     font-family: Lobster;
     font-size: 1.1rem;
   }
@@ -93,8 +94,9 @@ header {
       padding: 5px 0px;
 
       /* font styles */
-      font-family: Roboto;
-      font-weight: 800;
+      font-family: Lobster;
+      font-weight: 100;
+      font-size: 1.2rem;
   }
 
   #divAuthor {
@@ -102,10 +104,12 @@ header {
     width: 100%;
     text-align: center;
     top: 5rem;
+    padding: 0px;
 
     /* font styles */
-    font-family: roboto;
-    font-weight: 900;
+    font-family: Roboto;
+    font-weight: 100;
+    font-size: 0.9rem;
   }
 
   .redBackground {
