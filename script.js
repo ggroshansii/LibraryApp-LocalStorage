@@ -108,6 +108,7 @@ function hideBookCover(div) {
 function removeBook() {
   let xButton = document.createElement('div');
   xButton.setAttribute('class', 'xButton');
+  xButton.textContent = "X";
   return xButton;
 
 }
