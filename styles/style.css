@@ -49,6 +49,10 @@ header {
       border: 1px solid black;
       border-radius: 0.6rem;
 
+      /* slow transition for mouseover/mouseout */
+      transition: .5s all;   
+      transition-delay: 5s; 
+
   }
 
   .book button {
@@ -61,6 +65,11 @@ header {
     border: none;
     font-family: Lobster;
     font-size: 1.1rem;
+  }
+
+  .hideCover:hover {
+      background-image: none;
+      background-color: purple;
   }
 
   h1 {
@@ -110,6 +119,25 @@ header {
     font-family: Roboto;
     font-weight: 100;
     font-size: 0.9rem;
+  }
+
+  .xButton {
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border: 1px solid lightgrey;
+      border-radius: 0.2rem;
+      border-top-right-radius: 0.6rem;
+      top: 0rem;
+      right: 0rem;
+      z-index: 5;
+  }
+
+  .xButton:hover {
+    content: "X";
+    border: 1px solid rgb(46, 46, 46);
+    border-radius: 6px;
+    z-index: 5;
   }
 
   .redBackground {

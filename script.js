@@ -1,7 +1,6 @@
 //Array for holding newly created book objs
 let myLibrary = [];
 
-
 //Form fields as variables
 const authorField = document.querySelector("#author");
 const titleField = document.querySelector("#title");
@@ -9,7 +8,6 @@ const pageCountField = document.querySelector("#pageCount");
 const bookCoverField = document.querySelector("#bookCover");
 const readField = document.querySelector("#read");
 const notReadField = document.querySelector("#notRead");
-
 
 //Constructor to create new book objs
 function Book(author, title, pageCount, bookCover, read, index) {
@@ -50,7 +48,6 @@ function displayBooks(array) {
       createDisplay(array[i]);
     }
   }
-  clickEventBtn();
 }
 
 //Creates element, updates class/id attributes, appends to DOM, updates 'displayed' property
@@ -63,7 +60,6 @@ function createDisplay(obj) {
 
   createBookElements(obj, bookDiv);
 
-
   obj.displayed = true;
 }
 
@@ -75,9 +71,9 @@ function createBookElements(obj, div) {
   titleP.setAttribute('id', 'divTitle')
   let authorP = document.createElement('p');
   authorP.setAttribute('id', 'divAuthor')
-  
+
   div.addEventListener('mouseover', function(e) {
-    removeBookCover(div);
+    hideBookCover(div);
     authorP.innerText = obj.author;
     titleP.innerText = obj.title;
   })
@@ -91,6 +87,7 @@ function createBookElements(obj, div) {
   div.appendChild(titleP);
   div.appendChild(authorP);
   div.appendChild(addReadBtn(obj));
+  div.appendChild(removeBook());
 
 }
 
@@ -99,11 +96,20 @@ function addBookCover(obj, div) {
   div.style.backgroundImage = `url(${obj.bookCover})`;
   div.style.backgroundSize = 'cover';
 }
+
 //Remove background image (bookCover) from book div
-function removeBookCover(div) {
-  div.style.backgroundImage =  "";
+function hideBookCover(div) {
+  div.style.backgroundImage = "";
   div.style.backgroundSize = "";
-  div.style.backgroundColor = "lightgrey";
+  div.style.backgroundColor = "lightpurple";
+}
+
+//Adding X in top right corner for book removal 
+function removeBook() {
+  let xButton = document.createElement('div');
+  xButton.setAttribute('class', 'xButton');
+  return xButton;
+
 }
 
 
@@ -142,29 +148,27 @@ submitBook.addEventListener('click', function (e) {
   myLibrary.push(bookAddition);
 
   displayBooks(myLibrary);
+  clickEventBtn();
   resetForm();
 })
 
 
 //Adds Click event on newly created read button on book display
 function clickEventBtn() {
-  let readBtn = document.querySelectorAll('.readBtn');
-
-  for (let i = 0; i < readBtn.length; i++) {
-    readBtn[i].addEventListener('click', function (e) {
-
-      if (e.target.innerText === 'Read') {
-        e.target.classList.remove('greenBackground');
-        e.target.setAttribute('class', 'redBackground');
-        e.target.innerText = 'Not Read';
+  document.querySelectorAll('.readBtn').forEach(item => {
+    item.addEventListener('click', function () {
+      if (item.innerText === 'Read') {
+        item.classList.remove('greenBackground');
+        item.setAttribute('class', 'redBackground');
+        item.innerText = 'Not Read';
       }
-      else if (e.target.innerText === 'Not Read') {
-        e.target.classList.remove('redBackground');
-        e.target.setAttribute('class', 'greenBackground');
-        e.target.innerText = 'Read';
+      else if (item.innerText === 'Not Read') {
+        item.classList.remove('redBackground');
+        item.setAttribute('class', 'greenBackground');
+        item.innerText = 'Read';
       }
     });
-  }
+  })
 }
 
 
