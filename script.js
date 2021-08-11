@@ -72,14 +72,14 @@ function createBookElements(obj, div) {
   let authorP = document.createElement('p');
   authorP.setAttribute('id', 'divAuthor')
 
-  div.addEventListener('mouseover', function(e) {
+  div.addEventListener('mouseover', function (e) {
     hideBookCover(div);
     authorP.innerText = obj.author;
     titleP.innerText = obj.title;
   })
 
-  div.addEventListener('mouseout', function(e) {
-    authorP.innerText =  "";
+  div.addEventListener('mouseout', function (e) {
+    authorP.innerText = "";
     titleP.innerText = "";
     addBookCover(obj, div);
   })
